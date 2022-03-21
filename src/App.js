@@ -1,16 +1,28 @@
 import './App.css';
-import Day from './component/Day';
-import DayList from './component/DayList';
 import Header from './component/Header';
+import DayList from './component/DayList'
+import Day from './component/Day'
+import {BrowserRouter,Route,Routes} from 'react-router-dom';
 
 function App() {
   return (
+    <BrowserRouter>
     <div className="App">
       <Header/>
-      <DayList/>
-      <Day/>
+      <Routes>
+        <Route path='/' element={<Day/>}>
+        </Route>
+        <Route path='/day' element={<DayList/>}>
+        </Route>
+      </Routes>
     </div>
+    </BrowserRouter>
   );
 }
 
 export default App;
+
+/*
+* route DOM : npm install react-router-dom
+  ** react-router-dom 버전 6 부터 Switch 지원 X
+*/ 
