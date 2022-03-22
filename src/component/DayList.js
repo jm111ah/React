@@ -1,13 +1,28 @@
-import dummy from "../db/data.json"
+import { useEffect, useState } from "react";
+import {Link} from "react-router-dom";
 
 export default function DayList(){
-    console.log(dummy);
-  return <ul className="list_day">
-      {dummy.days.map(day => (
+    const [days,setDays] = useState([]);
+    const [count,setCount] = useState(0);
+
+    function onClick(){
+        setCount(count +1);
+    }
+
+    useEffect(()=>{
+        console.log("Count change");
+    });
+
+
+  return <>
+     <ul className="list_day">
+      {days.map(day => (
           <li key={day.id}>
-              Day {day.day}
+              <Link to={`/day/${day.day}`}>Day {day.day}</Link>
           </li>
       ))}
       <li></li>
   </ul>
+  <button onClick={onClick}>{count}</button>
+  </>
 }
