@@ -3,7 +3,6 @@ import Header from './component/Header';
 import DayList from './component/DayList'
 import Day from './component/Day'
 import {BrowserRouter,Route,Routes} from 'react-router-dom';
-import EmptyPage from './component/EmptyPage';
 
 function App() {
   return (
@@ -15,7 +14,6 @@ function App() {
         </Route>
         <Route path='/day/:day' element={<Day/>}>
         </Route>
-        <Route element={<EmptyPage/>}></Route>
       </Routes>
     </div>
     </BrowserRouter>
